@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-
+import { environment } from 'src/environments/environments';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
+  apiUrl = environment.backendUrl;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -19,6 +20,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.form = this.formBuilder.group({
       name: '',
       email: '',
@@ -26,10 +28,11 @@ export class RegisterComponent implements OnInit {
       ip: '136.158.43.30',
       ip_label: 'Converge ICT Network'
     });
+
   }
 
   submit(): void {
-    this.http.post('http://localhost:8000/api/register', this.form.getRawValue())
+    this.http.post(`${this.apiUrl}/api/register`, this.form.getRawValue())
       .subscribe(() => this.router.navigate(['/login']));
   }
 }
