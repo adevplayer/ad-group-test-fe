@@ -1,6 +1,9 @@
-<form>
-  <h1 class="h3 mb-3 fw-normal">Login</h1>
-  <input type="email" class="form-control" placeholder="Email" required autofocus>
-  <input type="password" class="form-control mt-2" placeholder="Password" required>
-  <button class="btn btn-lg btn-primary btn-block w-100" type="submit">Login</button>
+<form [formGroup]="form" (submit)="submit()">
+  <h1 class="h3 mb-3 fw-normal">Sign In Account</h1>
+
+  <input formControlName="email" type="email" class="form-control" placeholder="Email" required>
+
+  <input formControlName="password" type="password" class="form-control mt-2" placeholder="Password" required>
+
+  <button class="w-100 btn btn-lg btn-primary mt-2" type="submit">Login</button>
 </form>
