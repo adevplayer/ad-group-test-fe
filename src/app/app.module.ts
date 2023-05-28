@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LogsComponent } from './logs/logs.component';
+import { LogsViewComponent } from './logs/logs-view/logs-view.component';
+import { LogsListComponent } from './logs/logs-list/logs-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LogsComponent } from './logs/logs.component';
     LoginComponent,
     NavComponent,
     HomeComponent,
-    LogsComponent
+    LogsComponent,
+    LogsViewComponent,
+    LogsListComponent
   ],
   imports: [
     BrowserModule,
